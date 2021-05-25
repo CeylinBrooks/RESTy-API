@@ -6,8 +6,8 @@
 
 ### Links and Resources
 
-[Github]()
-[Pull-Requests]()
+[Github](https://github.com/JTaisey389/RESTy-API)
+[Pull-Requests](https://github.com/JTaisey389/RESTy-API/pulls?q=is%3Apr+is%3Aclosed)
 
 ### User Stories
 
@@ -25,3 +25,4 @@ The following user/developer stories detail the major functionality for this pha
 
 ### UML
 
+![UML](Assets/Resty_API.jpg)
