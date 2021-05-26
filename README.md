@@ -23,6 +23,23 @@ The following user/developer stories detail the major functionality for this pha
 - Create buttons that let the user choose from the REST methods (get, post, put, delete)
 - When the form is filled out, and the button is clicked, display the URL and the method chosen
 
+- Day Two User Stories:
+
+The following user stories detail the major functionality for this phase of the project.
+
+- As a user, I want to enter the URL to an API and issue a GET request so that I can retrieve it’s data
+- As a user, I want to see the results returned from an API request in my browser in a readable format
+
+### Application Flow:
+
+1. User enters an API URL
+2. Chooses a REST Method
+2. Clicks the “Go” button
+3. Application fetches data from the URL given, with the method specified
+4. Displays the response headers and results separately
+5. Both headers and results should be “pretty printed” JSON
+
+
 ### UML
 
 ![UML](Assets/Resty_API.jpg)
