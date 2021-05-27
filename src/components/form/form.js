@@ -5,13 +5,15 @@ A selection of REST methods to choose from (“get” should be the default)
 On submit
 Send the API results back to the <App> using the method sent down in props */
 import React from "react";
-
+import './form.scss'
+import superagent from 'superagent';
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       URL: "",
+      storageCounter: 1,
     };
   }
   handleURLChange = (e) => { // Refactored from yesterday
@@ -20,22 +22,29 @@ class Form extends React.Component {
   };
   handleClick = (e) => { // added the async
     e.preventDefault();
-    let method = e.target.value;
-    this.setState({ method });
+    this.props.handleURLChange;
   };
   
-  // ==================== ADDED TODAY ==========
   handleSubmit = async (e) => { // added the async
     e.preventDefault();
-
-    let raw = await fetch('https://swapi.dev/api/people/');
-    let data = await raw.json();
-    let count = await data.count;
-    let people = data.results
-    this.props.handler(count, people);
+    let url = this.props.url;
+    let route = this.props.route;
+// ====== superagent ======
+    let raw = await superagent(route,url);
+    let results = raw.body;
+    let count = results.count;
+    this.props.handler(count, results, url, route); 
     this.props.toggleLoading();
+
+    // ====== Session Storage ======
+    let router = this.state.URL;
+    let restMethod = this.state.method;
+    // let date = new Date;
+    sessionStorage.setItem(this.state.storageCounter,`${restMethod}`, `${router}`)
+    // sessionStorage.setItem('restMethod', restMethod)
+    let counter = this.storageCounter +1;
+    this.setState({ storageCounter: count });
   };
- // ==================== END ==================
   render() {
     return (
       <div id="form">
@@ -48,7 +57,10 @@ class Form extends React.Component {
           <label for="URL">Paste URL:</label>
           <input id="input" type="text" onChange={this.handleURLChange}></input>
           <button id="results" type="submit" onChange={this.onChange} value="RUN">Run</button>
-        </form>      
+        </form>
+        <section id="results">
+          
+        </section>
       </div>
 
     );
