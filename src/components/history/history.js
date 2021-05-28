@@ -4,25 +4,28 @@ import "./history.scss";
 class History extends React.Component {
   pullHistory = (e) => {
     let req = e.target.innerHTML;
-    req = req.split("");
-    let method = req[0];
+    req = req.split(" ");
+    let route = req[0];
     let url = req[1];
-    this.props.handleHistory(method, url);
+    console.log(method,url);
+    this.props.handleHistory(route, url);
   };
   render() {
-    let items = this.props.history.map((query, idx) => {
-      <li key={idx} onClick={this.pullHistory}>
-        {query.method} {query.url}
-      </li>;
-      });
     return (
-        <React.Fragment>
-          <section className="history">
-            <h1>Search History</h1>
-            <ul>{items}</ul>
-          </section>
-        </React.Fragment>
-      );  
+      <section id="history">
+        <h3 className="historyText">History</h3>
+        <h3 className="historyText">Click a saved search and hit 'run' to view results.</h3>
+        <ul>
+          {Object.keys(localStorage).map((i,value) => {
+            return(
+              <li key={i} onclick={this.updateHistory}>
+              {localStorage.getItem(i,value)}
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+    ) 
   }
 }
 export default History;

@@ -1,21 +1,29 @@
-#form {
+form {
   text-align: center;
-}
-#how-to {
-  color: #270722;
-}
-input {
-  background-color: #ffffff;
-  color: #270722;
-  width: 380px;
-  padding: 13px;
-  font-size: 14px;
-  border: 2px;
-  border-color: #270722;
-  border-style: dashed;
-  margin-bottom: 35px;
-}
-#results {
-  background-color: #ffffff;
-  margin-bottom: 35px;
+  padding: 10px;
+
+  .query-parameters{
+    margin: 10px;
+    height: 35px;
+    width: 70%;
+    text-align: center;
+    ::-webkit-input-placeholder{
+      text-align: center;
+    }
+    ::-moz-placeholder {
+      text-align: center;
+    }
+  }
+  .rest-action{
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    background-color: #878E88;
+    &:hover{
+     background-color: #878E88;
+    }
+    &:focus{
+      background-color: #FEF6C9;
+    }
+  }
 }

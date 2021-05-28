@@ -1,7 +1,15 @@
 #history{
   background-color: #D4DFC7;
+  border: black solid 4px;
   text-align: center;
   padding: 5px;
-  margin: 5px;
+  margin-left: 10px;
+  word-wrap: break-word;
   border: 5px;
+  h3{
+    font-family: 'Stint Ultra Condensed', cursive;
+    font-size: large;
+    text-align: center;
+    margin: 0;
+  }
 }
