@@ -1,64 +1,94 @@
-/*app.js - Container
-Holds state: Count and Results Array
-A class method that can update state
-Renders 2 Child Components */
 import React from "react"; // import the React app from app
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from "./components/header/header.js"; // import the Header from the Header.js
-import Form from "./components/form/form.js"; // import the form from form.js
 import Footer from "./components/footer/footer.js";
+import Form from "./components/form/form.js"; // import the form from form.js
 import Results from "./components/results/results.js";
 import History from "./components/history/history.js";
-import Home from "./components/home/home.js";
-import "./style.scss";
+
+import { If, Then } from './components/if/index.js';
+import HelpPage from "./components/help/help.js";
+// npm i react-router dom
+// import { BrowserRouter, Route } from "react-router-dom";
+import "./css/reset.css";
+import "./css/style.scss";
 
 class App extends React.Component {
-  // call our class App which will extend the React Component
-  // ==================== ADDED TODAY ==========
   constructor(props) {
+    // removed props for the time being
     super(props);
     this.state = {
-      loading: false,
-      count: 0,
-      results: [],
-      history: [],
       url: "",
       route: "",
+      body: [],
+      headers: {},
+      history: [],
+      count: 0,
+      isLoading: false, // TODO add
+      isOutputVisible: false, // TODO add
     };
   }
+
   toggleLoading = () => {
+    // The load component
     this.setState({ loading: !this.state.loading });
   };
-  handleForm = (count,results,url,route) => {
-    this.setState({ count,results,url,route });
+
+  toggleSearchLoading = () => {
+    // Search is loading
+    this.setState({ searchLoading: !this.state.searchLoading });
   };
+
+  handleChange = (e) => {
+    // Handles page change
+    let url = e.target.value;
+    this.setState({ url });
+  };
+
+  handleClick = (e) => {
+    // Handles click event
+    e.preventDefault();
+    let route = e.target.value;
+    this.setState({ route });
+  };
+  handleForm = (count,data,route,url) => {
+
+    this.setState({ count,data,route,url });
+  }
+  updateHistory = (item) => {
+    this.setState({ history: [...this.state.history, item] });
+    localStorage.setItem("history", JSON.stringify(this.state.history));
+  };
+
   handleHistory = (url, route) => {
     this.setState({ url, route });
   };
-  // handleChange = (url, route ) => {
-  //   this.setState({ url, route })
-  // }
-  // ==================== END ==================
+
   render() {
-    // Now we can render our HMTL to the page
     return (
-      // our return statement contains the files to be rendered to the page
-      <>
-      <Header />
+      <BrowserRouter>
+        <Header />
+        <HelpPage />
         <Form
-          prompt="click for sw"
           toggleLoading={this.toggleLoading}
+          handleChange={this.handleChange}
+          handleClick={this.handleClick}
           handler={this.handleForm}
+          handleSubmit={this.handleSubmit}
           url={this.state.url}
-          route={this.state.method}
+          route={this.state.route}
         />
-        <Results people={this.state.results} />
-        <History
-          history={this.state.history}
-          handleHistory={this.handleHistory}
-        />
+        <div className="output-wrapper">
+          <History
+            handleHistory={this.handleHistory}
+            history={this.state.history}
+          />
+        </div>
+        <Results data={this.state.data}/>
         <Footer />
-      </>
-    );
+      </BrowserRouter>
+    ) 
   }
 }
+
 export default App;

@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
-// import Results from './results'
+// import reportWebVitals from './reportWebVitals';
 const root = document.getElementById('root');
 
 ReactDOM.render(<App />, root);
+
+// reportWebVitals();
