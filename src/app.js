@@ -1,13 +1,13 @@
 import React from "react"; // import the React app from app
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Header from "./components/header/header.js"; // import the Header from the Header.js
+import HelpPage from "./components/help/help.js";
 import Footer from "./components/footer/footer.js";
 import Form from "./components/form/form.js"; // import the form from form.js
 import Results from "./components/results/results.js";
 import History from "./components/history/history.js";
 
-import { If, Then } from './components/if/index.js';
-import HelpPage from "./components/help/help.js";
+// import { If, Then } from './components/if/index.js';
 // npm i react-router dom
 // import { BrowserRouter, Route } from "react-router-dom";
 import "./css/reset.css";
@@ -67,8 +67,8 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Header />
-        <HelpPage />
+          <Header />
+        <Route exact path="/">
         <Form
           toggleLoading={this.toggleLoading}
           handleChange={this.handleChange}
@@ -78,12 +78,19 @@ class App extends React.Component {
           url={this.state.url}
           route={this.state.route}
         />
+        </Route>
+        <Route exact path="/history">
         <div className="output-wrapper">
           <History
             handleHistory={this.handleHistory}
             history={this.state.history}
           />
         </div>
+        </Route>
+        <Route exact path="/help">
+        <HelpPage />
+
+        </Route>
         <Results data={this.state.data}/>
         <Footer />
       </BrowserRouter>

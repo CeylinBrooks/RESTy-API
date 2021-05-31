@@ -1,29 +1,50 @@
-form {
-  text-align: center;
-  padding: 10px;
+$primary: #92BCEA;
+$white: #617073;
+$border: #171A21;
 
-  .query-parameters{
-    margin: 10px;
-    height: 35px;
-    width: 70%;
-    text-align: center;
-    ::-webkit-input-placeholder{
-      text-align: center;
-    }
-    ::-moz-placeholder {
-      text-align: center;
-    }
-  }
-  .rest-action{
-    border: none;
-    padding: 5px;
-    margin: 10px;
-    background-color: #878E88;
-    &:hover{
-     background-color: #878E88;
-    }
-    &:focus{
-      background-color: #FEF6C9;
-    }
-  }
+#form {
+  text-align: center;
+}
+
+#info {
+  color: #3f3f3f;
+}
+
+#inputUrl {
+  background-color: $white;
+  color: #3f3f3f;
+  width: 400px;
+  padding: 16px;
+  font-size: 16px;
+  border: 1px;
+  border-color: $border;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+#onClick {
+  background-color: $primary;
+  color: $white;
+  padding: 15px;
+  padding-bottom: 16px;
+  font-size: 16px;
+  border: 1px solid $border;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#run {
+  background-color: $primary;
+  color: $white;
+  padding: 15px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 16px;
+  border: 1px solid $border;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#results {
+  color: #3f3f3f;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./history.scss";
 
 class History extends React.Component {
@@ -12,7 +13,7 @@ class History extends React.Component {
   };
   render() {
     return (
-      <section id="history">
+      <div id="history">
         <h3 className="historyText">History</h3>
         <h3 className="historyText">Click a saved search and hit 'run' to view results.</h3>
         <ul>
@@ -24,7 +25,7 @@ class History extends React.Component {
             )
           })}
         </ul>
-      </section>
+      </div>
     ) 
   }
 }
