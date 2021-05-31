@@ -70,6 +70,10 @@ Update the RESTy application as follows:
 
 ![UML](Assets/Resty_API.jpg)
 
+### Final UML
+
+![UML](Assets/RESTy.jpg)
+
 ### Deployed Application
 
-- <https://60ad966e7fdb0300d424503d--blissful-ptolemy-980c35.netlify.app/>
+- https://quirky-swirles-a33674.netlify.app/
