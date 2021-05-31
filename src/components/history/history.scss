@@ -1,15 +1,20 @@
-#history{
-  background-color: #D4DFC7;
-  border: black solid 4px;
+$bgColor: white;
+$darkColor: #3f3f3f;
+$border: #a7a7a7;
+
+.historyText {
+  color: $darkColor;
   text-align: center;
-  padding: 5px;
-  margin-left: 10px;
-  word-wrap: break-word;
-  border: 5px;
-  h3{
-    font-family: 'Stint Ultra Condensed', cursive;
-    font-size: large;
-    text-align: center;
-    margin: 0;
-  }
+}
+
+#history {
+  margin: 0 auto;
+  border: 1px solid $border;
+  border-radius: 5px;
+  background-color: $bgColor;
+  height: 300px;
+  width: 80vw;
+  margin-top: 11px;
+  margin-bottom: 10px;
+  overflow-y: scroll;
 }

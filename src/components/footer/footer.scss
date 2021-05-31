@@ -1,14 +1,9 @@
-$bgColor: #725752;
+  
+$bgColor: #3f3f3f;
 
 #footer {
   background: $bgColor;
-  color: #878E88;
-  height: 75px;
-  bottom: 0;
-  width: 100%;
-  font-size: large;
-  font-family: 'Stint Ultra Condensed', cursive;
-}
-p {
-  padding-left: 15%;
+  color: #617073;
+  text-align: center;
+  padding: 3px;
 }

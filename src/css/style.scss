@@ -1,15 +1,5 @@
-$bgColor: #96C0B7;
+$bgColor: rgb(235, 233, 233);
 
 body {
   background: $bgColor;
-  margin: auto 0;
-  position: relative;
-  min-height: 100vh;
-}
-#root{
-  padding-bottom: 100px;
-}
-.outer-wrapper {
-  display: grid;
-  grid-template-columns: 25% 75%;
 }

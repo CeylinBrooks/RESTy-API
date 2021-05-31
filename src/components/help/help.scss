@@ -1,8 +1,19 @@
-#help{
-  h3{
-    font-family: 'Stint Ultra Condensed', cursive;
-  }
-  li{
-    font-family: 'Stint Ultra Condensed', cursive;
+$bgColor: white;
+$darkColor: #3f3f3f;
+$border: #a7a7a7;
+
+#help {
+  border: 1px solid $border;
+  border-radius: 5px;
+  background-color: $bgColor;
+  height: 300px;
+  width: 80vw;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+
+  .helpText {
+    color: $darkColor;
+    margin-left: 5px;
   }
 }
